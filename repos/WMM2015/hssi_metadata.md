@@ -22,7 +22,9 @@ https://github.com/space-physics/WMM2015
 **Source:** Repository URL, confirmed in setup.cfg
 
 ### 4. Software Functionality (MANDATORY)
+- Models and Simulations
 - Models and Simulations:Empirical
+- Data Visualization
 - Data Visualization:2D Graphics
 
 **Source:** Code analysis (src/wmm2015/base.py, src/wmm2015/plots.py)
@@ -39,13 +41,17 @@ https://github.com/space-physics/WMM2015
 **Details:** WMM2015 models the Earth's geomagnetic field and is commonly used for ionosphere/thermosphere/mesosphere studies
 
 ### 6. Authors (MANDATORY)
-- **Authors:** Michael Hirsch, Ph.D.
-- **Author Identifier:** Not found
-- **Affiliation:**
-  - **Organization:** Not found
-  - **Affiliation Identifier:** Not found
+- **Author 1 Name:** Michael Hirsch
+- **Author 1 Identifier:** Not found
+- **Author 1 Affiliation:** Not found
+- **Author 2 Name:** Manoj C. Nair
+- **Author 2 Identifier:** Not found
+- **Author 2 Affiliation:** Not found
+- **Author 3 Name:** Adam Woods
+- **Author 3 Identifier:** Not found
+- **Author 3 Affiliation:** Not found
 
-**Source:** setup.cfg metadata
+**Source:** setup.cfg metadata for the Python package author; bundled WMM C source headers for the upstream WMM source authors.
 
 ### 7. Software Name (MANDATORY)
 WMM2015
@@ -93,7 +99,7 @@ Not found
 **Note:** No reference publication DOI found. References in README point to NOAA WMM2015 data maps, not a publication.
 
 ### 15. License (RECOMMENDED)
-- **License:** Public Domain (U.S. Government Work)
+- **License:** Other: Public Domain (U.S. Government Work)
 - **License URI:** https://www.ngdc.noaa.gov/geomag/WMM/license.shtml
 
 **Source:** LICENSE.txt
@@ -104,7 +110,10 @@ Not found
 ## Section 2: Additional Data
 
 ### 16. Keywords (OPTIONAL)
+- geomagnetism
 - geomagnetic
+- World Magnetic Model
+- magnetic field
 - build-on-run
 - ionosphere_thermosphere_mesosphere (from PyHC)
 - specific (from PyHC)
@@ -117,14 +126,14 @@ Not found
 **Note:** The software uses built-in WMM2015 coefficient data files, not external data sources
 
 ### 18. Input File Formats (RECOMMENDED)
-Not applicable
+- ascii
 
-**Note:** Software uses internal coefficient data; takes numerical inputs (lat, lon, altitude, year) programmatically
+**Note:** The primary Python API takes numerical inputs (lat, lon, altitude, year) programmatically. The bundled C file-processing program accepts ASCII input files, and the repository includes `src/wmm2015/test_input.asc`.
 
 ### 19. Output File Formats (RECOMMENDED)
-Not applicable
+- ascii
 
-**Note:** Software returns xarray.Dataset objects in memory; does not write to specific file formats by default
+**Note:** The primary Python API returns xarray.Dataset objects in memory. The bundled C file-processing program writes ASCII output files.
 
 ### 20. Operating System (RECOMMENDED)
 - Linux
@@ -134,10 +143,9 @@ Not applicable
 **Source:** README.md, .github/workflows/ci.yml (CI testing on ubuntu-latest, macos-latest, windows-latest)
 
 ### 21. CPU Architecture (RECOMMENDED)
-- x86-64
 - CPU Independent
 
-**Source:** Inferred from Python package compatibility and lack of architecture-specific constraints
+**Source:** Inferred from Python package compatibility and lack of documented architecture-specific constraints.
 
 ### 22. Related Phenomena (OPTIONAL)
 Not found
@@ -145,9 +153,9 @@ Not found
 **Note:** While the software models geomagnetic phenomena, specific phenomena terms from controlled vocabularies were not found in repository documentation
 
 ### 23. Development Status (RECOMMENDED)
-Active
+Inactive
 
-**Source:** setup.cfg (Development Status :: 5 - Production/Stable), recent commit activity
+**Source:** setup.cfg classifier indicates production/stable status, but the latest local commit is from 2021-10-10 and the latest tag is v1.1.1 from 2021-02-11, so there is no clear evidence of ongoing active development.
 
 ### 24. Documentation (RECOMMENDED)
 https://github.com/space-physics/wmm2015
@@ -171,10 +179,9 @@ Not found
 **Note:** No publications citing or describing the software were found in repository
 
 ### 28. Related Datasets (OPTIONAL)
-- WMM2015 inclination map: https://www.ngdc.noaa.gov/geomag/WMM/data/WMM2015/WMM2015_I_MERC.pdf
-- WMM2015 declination map: https://www.ngdc.noaa.gov/geomag/WMM/data/WMM2015/WMM2015_D_MERC.pdf
+Not found
 
-**Source:** README.md references section
+**Note:** README reference links point to WMM2015 map PDFs, not dataset records or dataset citations.
 
 ### 29. Related Software (OPTIONAL)
 - WMM2020: https://github.com/space-physics/wmm2020
@@ -182,11 +189,11 @@ Not found
 **Source:** README.md (mentions WMM2020 as related/successor software)
 
 ### 30. Interoperable Software (OPTIONAL)
-- xarray
-- numpy
+- https://github.com/pydata/xarray
+- https://github.com/numpy/numpy
 
 **Source:** setup.cfg install_requires
-**Note:** These are required dependencies that the software interoperates with
+**Note:** These are required dependencies that the software uses to return model results as xarray datasets backed by NumPy arrays.
 
 ### 31. Related Instruments (OPTIONAL)
 Not found

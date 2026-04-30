@@ -29,8 +29,13 @@
 
 Based on comprehensive analysis of the code, documentation, and repository:
 
+- **Coordinate Transforms**
+- **Coordinate Transforms:Magnetospheric**
+- **Data Processing and Analysis**
+- **Data Processing and Analysis:Analysis**
 - **Data Processing and Analysis:Data Access and Retrieval** (primary functionality)
 - **Data Processing and Analysis:Data Reduction**
+- **Data Processing and Analysis:Field-line Tracing**
 - **Data Processing and Analysis:File Format Conversion**
 
 **Source:** Code analysis of madrigalWeb.py, globalDownload.py, and globalIsprint.py. The software is a remote API client for accessing Madrigal databases with the following capabilities:
@@ -38,6 +43,7 @@ Based on comprehensive analysis of the code, documentation, and repository:
 - Data retrieval with filtering by date, instrument, experiment, and parameters
 - Parameter selection (choose specific parameters from available data)
 - Data filtering (apply numeric filters and range constraints to parameters)
+- Derived parameter calculation, magnetic field tracing, and radar/geodetic coordinate conversions
 - File format conversion (ascii, HDF5, netCDF4)
 
 ---
@@ -73,9 +79,9 @@ Based on comprehensive analysis of the code, documentation, and repository:
 ---
 
 ### 7. Software Name (MANDATORY)
-**Name:** madrigalWeb
+**Name:** MadrigalWeb
 
-**Source:** CITATION.cff, pyproject.toml, PyHC registry, SoMEF
+**Source:** PyHC registry authoritative name. Note that CITATION.cff, pyproject.toml, and the repository/package name use the alternate casing "madrigalWeb".
 
 ---
 
@@ -99,11 +105,11 @@ This web interface will generate python commands using one of the following two 
 ---
 
 ### 10. Publication Date (RECOMMENDED)
-**Publication Date:** 2024-09-19
+**Publication Date:** 2016-06-16
 
-**Source:** Git repository creation date (2024-09-19 16:37:31 -0400), SoMEF date_created (2024-09-19T20:37:31Z)
+**Source:** PyPI release history for earliest available madrigalWeb distribution.
 
-**Note:** This appears to be the date the GitHub repository was created. The software itself (madrigalWeb) has existed longer but was migrated to GitHub at this date.
+**Note:** The GitHub repository was created on 2024-09-19, but PyPI release history shows the software was publicly distributed earlier.
 
 ---
 
@@ -120,14 +126,14 @@ This web interface will generate python commands using one of the following two 
 ### 12. Version (RECOMMENDED)
 
 **Version Information:**
-- **Version Number:** 3.3.5
-- **Version Date:** Not found
+- **Version Number:** 3.3.7
+- **Version Date:** 2026-03-12
 - **Version Description:** Not found
 - **Version PID:** Not found
 
-**Source:** pyproject.toml, SoMEF
+**Source:** pyproject.toml, PyPI release history
 
-**Note:** No git tags found in repository. No CHANGELOG or release notes found. Version information only available from pyproject.toml.
+**Note:** No git tags found in repository. No CHANGELOG or release notes found. Version number is available from pyproject.toml; release date is from PyPI.
 
 ---
 
@@ -150,7 +156,7 @@ This web interface will generate python commands using one of the following two 
 
 **License:**
 - **License Name:** MIT License
-- **License URI:** https://api.github.com/licenses/mit
+- **License URI:** https://spdx.org/licenses/MIT.html
 
 **Source:** CITATION.cff, license.txt, pyproject.toml, SoMEF
 
@@ -226,7 +232,7 @@ Not found
 
 **Status:** Active
 
-**Source:** Inference based on recent development activity and lack of deprecation notices. The repository was created in September 2024, indicating recent migration/setup. Current version 3.3.5 suggests mature, actively maintained software.
+**Source:** Inference based on recent development activity and lack of deprecation notices. The repository was created in September 2024, indicating recent migration/setup. Current version 3.3.7 suggests mature, actively maintained software.
 
 **Note:** No explicit repostatus.org badge found in repository.
 
@@ -234,7 +240,7 @@ Not found
 
 ### 24. Documentation (RECOMMENDED)
 
-**Documentation URL:** http://cedar.openmadrigal.org
+**Documentation URL:** https://cedar.openmadrigal.org/
 
 **Source:** CITATION.cff url field, setup.py, README.md
 
@@ -279,7 +285,7 @@ Not found
 ### 29. Related Software (OPTIONAL)
 
 **Related Software:**
-- **pysat** - Management and analysis tool for satellite and radar data (has madrigal keyword in PyHC registry)
+- **pysat** - https://github.com/pysat/pysat - Management and analysis tool for satellite and radar data (has madrigal keyword in PyHC registry)
 
 **Source:** PyHC core registry. pysat includes madrigal data access functionality and is listed as a related/complementary tool.
 
@@ -343,7 +349,7 @@ Not found
 - ✓ Authors confirmed across multiple sources (CITATION.cff, pyproject.toml)
 - ✓ License confirmed (MIT) with full text in license.txt
 - ✓ Repository URL verified and accessible
-- ✓ Version number (3.3.5) confirmed in pyproject.toml
+- ✓ Version number (3.3.7) confirmed in pyproject.toml
 - ✓ Programming language (Python 3.x) confirmed
 - ✓ File formats (ascii, HDF5, netCDF4) verified in code
 - ✓ Software functionality verified through code analysis

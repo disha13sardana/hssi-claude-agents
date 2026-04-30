@@ -18,12 +18,13 @@ Not found
 https://github.com/space-physics/scanning-doppler-interferometer
 
 ### 4. Software Functionality (MANDATORY)
-- Data Processing and Analysis:Data Access and Retrieval
-- Data Processing and Analysis:File Format Conversion
+- Data Processing and Analysis
 - Data Processing and Analysis:Processing
+- Data Processing and Analysis:Time Series Analysis
+- Data Visualization
 - Data Visualization:Line Plots
 
-**Source:** Analysis of source code in scanning_doppler_interferometer/ directory. The software reads Scanning Doppler Interferometer data files (ASCII and IDL .sav formats), parses wind measurements, and creates line plots of wind speeds over time.
+**Source:** Analysis of source code in scanning_doppler_interferometer/ directory. The Python package reads local Scanning Doppler Interferometer data files (ASCII and IDL .sav formats), parses wind measurements, converts begin/end-time strings, and creates line plots of wind speeds over time. No active remote download/query code was found in the Python package.
 
 ### 5. Related Region (MANDATORY)
 - Earth Atmosphere
@@ -31,14 +32,13 @@ https://github.com/space-physics/scanning-doppler-interferometer
 **Source:** PyHC registry keywords indicate "ionosphere_thermosphere_mesosphere". The data file shows measurements at 557.7 nm wavelength (characteristic of airglow emissions from the ionosphere/thermosphere region) from Poker Flat Research Range, Alaska.
 
 ### 6. Authors (MANDATORY)
-- **Authors:** Michael Hirsch, Ph.D.
-- **Author Email:** scivision@users.noreply.github.com
+- **Authors:** Michael Hirsch
 - **Author Identifier:** Not found
 - **Affiliation:**
   - **Organization:** Not found
   - **Affiliation Identifier:** Not found
 
-**Source:** setup.cfg file (author and author_email) and LICENSE.txt file (copyright 2014-2020)
+**Source:** setup.cfg file (author and author_email) and LICENSE.txt file (copyright 2014-2020). setup.cfg and LICENSE.txt include the suffix "Ph.D."; the metadata author name is normalized to the personal name only. The setup.cfg author email is scivision@users.noreply.github.com, but HSSI Field 6 does not define an author-email subfield.
 
 ### 7. Software Name (MANDATORY)
 Scanning Doppler Interferometer
@@ -46,7 +46,7 @@ Scanning Doppler Interferometer
 **Source:** PyHC registry entry and README.md title
 
 ### 8. Description (MANDATORY)
-Get, Parse, Plot: Scanning Doppler Interferometer data from PI Mark Conde's instruments. This software package loads and plots scanning Doppler interferometer data, particularly focused on atmospheric wind measurements. The package supports reading both ASCII text files and IDL .sav files containing wind data (zonal, meridional, and vertical components with associated uncertainties) from Scanning Doppler Interferometer observations. The data is aligned geographically at the station location and includes time series measurements of wind speeds in meters per second.
+Load, parse, and plot Scanning Doppler Interferometer data from PI Mark Conde's instruments. This software package loads and plots scanning Doppler interferometer data, particularly focused on atmospheric wind measurements. The package supports reading both ASCII text files and IDL .sav files containing wind data (zonal, meridional, and vertical components with associated uncertainties) from Scanning Doppler Interferometer observations. The data is aligned geographically at the station location and includes time series measurements of wind speeds in meters per second.
 
 **Source:** README.md, PyHC registry, setup.cfg, and analysis of source code and example data files
 
@@ -66,11 +66,11 @@ Load and plot scanning Doppler interferometer data from PI Mark Conde's instrume
 
 ### 12. Version (RECOMMENDED)
 - **Version Number:** 0.7.0
-- **Version Date:** Not found (no git tags available)
-- **Version Description:** Not found
+- **Version Date:** 2018-08-09
+- **Version Description:** Version 0.7.0 is the package metadata version introduced in setup.cfg; no release notes or git tag were found.
 - **Version PID:** Not found
 
-**Source:** setup.cfg metadata
+**Source:** setup.cfg metadata. No git tags are present; `git blame` shows the setup.cfg version line for 0.7.0 was introduced on 2018-08-09.
 
 ### 13. Programming Language (RECOMMENDED)
 - Python 3.x
@@ -91,7 +91,9 @@ Not found
 ## Section 2: Additional Data
 
 ### 16. Keywords (OPTIONAL)
-winds, interferometry, ionosphere
+- winds
+- interferometry
+- ionosphere
 
 **Source:** setup.cfg (winds, interferometry) and SoMEF GitHub API extraction (interferometry, ionosphere)
 
@@ -127,9 +129,9 @@ Not found
 **Source:** No specific phenomena mentioned in repository documentation
 
 ### 23. Development Status (RECOMMENDED)
-Inactive
+Unsupported
 
-**Source:** setup.cfg classifier indicates "Development Status :: 4 - Beta". Last commit was 2022-08-11, and last update from GitHub API was 2023-01-27 (likely a metadata update). No releases or git tags found.
+**Source:** GitHub API reports the repository is archived/read-only, with latest push on 2022-08-11 and latest repository update on 2023-01-27. setup.cfg classifier indicates "Development Status :: 4 - Beta". No releases or git tags found.
 
 ### 24. Documentation (RECOMMENDED)
 https://github.com/space-physics/scanning-doppler-interferometer
@@ -163,10 +165,10 @@ Not found
 Not found
 
 ### 31. Related Instruments (OPTIONAL)
-- **Instrument Name:** Scanning Doppler Interferometer (Mark Conde's instruments)
+- **Instrument Name:** Scanning Doppler Interferometer
 - **Instrument Identifier:** Not found
 
-**Source:** README.md and software description refer to "PI Mark Conde's instruments." Example data shows measurements from Poker Flat Research Range.
+**Source:** README.md and software description refer to Scanning Doppler Interferometer data from "PI Mark Conde's instruments." Example data shows measurements from Poker Flat Research Range.
 
 ### 32. Related Observatories (OPTIONAL)
 - **Observatory Name:** Poker Flat Research Range
@@ -194,7 +196,7 @@ Not found
 ## Notes
 
 - **No DOI Found:** This package does not have a persistent identifier (DOI). No CITATION.cff, .zenodo.json, or DOI badges found in repository.
-- **No Git Tags:** No version tags found in git repository, though setup.cfg indicates version 0.7.0.
-- **Development Status:** The repository shows limited recent activity (last commit 2022-08-11), indicating an inactive or minimally maintained project.
+- **No Git Tags:** No version tags found in git repository. setup.cfg indicates version 0.7.0, and `git blame` shows that version line was introduced on 2018-08-09.
+- **Development Status:** The repository is archived/read-only on GitHub and shows limited recent activity (last commit 2022-08-11), indicating an unsupported project.
 - **PyHC Status:** Listed in PyHC unevaluated packages, indicating it has been identified as a heliophysics Python package but has not undergone full PyHC standards evaluation.
 - **Instrument-Specific:** This is a specialized package designed for a specific instrument operated by PI Mark Conde.

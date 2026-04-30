@@ -23,8 +23,10 @@
 - **Selected Values:**
   - Data Processing and Analysis
   - Data Processing and Analysis:Time Series Analysis
-- **Source:** Analysis of code functionality - the library performs date/time conversions used in scientific applications, including datetime to year/day-of-year conversions, decimal year conversions, UTC seconds conversions, and local solar time calculations
-- **Note:** This is a utility library for time/date conversions commonly needed in heliophysics data processing
+  - Data Visualization
+  - Data Visualization:Line Plots
+- **Source:** Analysis of code functionality - the library performs date/time conversions used in scientific applications, including datetime to year/day-of-year conversions, decimal year conversions, UTC seconds conversions, and local solar time calculations; `src/sciencedates/ticks.py` provides Matplotlib date-axis tick formatting for short time-range plots
+- **Note:** This is a utility library for time/date conversions commonly needed in heliophysics data processing, with a plotting-axis helper for time-series visualization workflows
 
 ### 5. Related Region (MANDATORY)
 - **Selected Values:**
@@ -35,14 +37,14 @@
 
 ### 6. Authors (MANDATORY)
 - **Author 1:**
-  - **Authors:** Michael Hirsch, Ph.D.
+  - **Authors:** Michael Hirsch
   - **Author Identifier:** Not found
   - **Affiliation:** Not found
-- **Source:** setup.cfg, LICENSE.txt, DataCite API (note: DataCite only lists first name "Michael" with empty surname)
+- **Source:** setup.cfg, LICENSE.txt, DataCite API (note: setup.cfg and LICENSE.txt include the credential suffix "Ph.D."; name normalized for HSSI author-name format; DataCite only lists first name "Michael" with empty surname)
 
 ### 7. Software Name (MANDATORY)
-- **Software Name:** sciencedates
-- **Source:** setup.cfg, DataCite API, GitHub repository name
+- **Software Name:** ScienceDates
+- **Source:** PyHC unevaluated registry official name; setup.cfg, DataCite API, and GitHub repository use lowercase package/repository name `sciencedates`
 
 ### 8. Description (MANDATORY)
 - **Description:** Date & time conversions used in the sciences. The assumption is that datetimes are timezone-naive, as this is required in Numpy and other scientific libraries for numpy.datetime64. This library provides conversions between datetime objects and various scientific time formats including year/day-of-year (yyyyddd), decimal year, UTC seconds, and local solar time. It supports Python, with additional examples provided for Julia, Matlab/GNU Octave, and Fortran.
@@ -72,9 +74,9 @@
 - **Selected Values:**
   - Python 3.x
   - Julia
-  - Fortran77
+  - Fortran90
   - MATLAB
-- **Source:** SoMEF (programming_languages from GitHub API), repository file analysis (src/, julia/, fortran/, matlab/ directories), setup.cfg (Python >= 3.7)
+- **Source:** SoMEF (programming_languages from GitHub API), repository file analysis (src/, julia/, fortran/doy.f90, matlab/ directories), setup.cfg (Python >= 3.7)
 
 ### 14. Reference Publication (RECOMMENDED)
 - **Reference Publication:** Not found
@@ -82,7 +84,7 @@
 
 ### 15. License (RECOMMENDED)
 - **License:** MIT License
-- **License URI:** https://api.github.com/licenses/mit
+- **License URI:** https://spdx.org/licenses/MIT.html
 - **Source:** LICENSE.txt, SoMEF (GitHub API), SPDX ID: MIT
 
 ---
@@ -109,12 +111,12 @@
 - **Note:** This is a utility library for date/time conversions, not designed to read from specific data sources
 
 ### 18. Input File Formats (RECOMMENDED)
-- **Input File Formats:** Not applicable
-- **Note:** Library works with datetime objects and numeric formats, not file I/O
+- **Input File Formats:** Not found
+- **Note:** Library works with datetime objects and numeric formats, not file I/O; no supported input file formats were found
 
 ### 19. Output File Formats (RECOMMENDED)
-- **Output File Formats:** Not applicable
-- **Note:** Library works with datetime objects and numeric formats, not file I/O
+- **Output File Formats:** Not found
+- **Note:** Library works with datetime objects and numeric formats, not file I/O; no supported output file formats were found
 
 ### 20. Operating System (RECOMMENDED)
 - **Selected Values:**
@@ -134,8 +136,8 @@
 - **Note:** As a general-purpose date/time conversion utility, not specific to particular phenomena
 
 ### 23. Development Status (RECOMMENDED)
-- **Development Status:** Active
-- **Source:** setup.cfg classifier "Development Status :: 5 - Production/Stable", recent repository activity (last updated 2025-04-17 per SoMEF)
+- **Development Status:** Inactive
+- **Source:** setup.cfg classifier "Development Status :: 5 - Production/Stable" indicates a stable usable release, but latest commit, latest GitHub release, and latest Zenodo version are from 2021-12-29; SoMEF's 2025-04-17 timestamp reflects repository metadata activity rather than code or release activity
 
 ### 24. Documentation (RECOMMENDED)
 - **Documentation URL:** https://github.com/geospace-code/sciencedates
@@ -163,18 +165,19 @@
 
 ### 29. Related Software (OPTIONAL)
 - **Related Software:**
-  - numpy (dependency)
-  - python-dateutil (dependency)
+  - https://github.com/numpy/numpy
+  - https://github.com/dateutil/dateutil
 - **Source:** setup.cfg install_requires
-- **Note:** These are required dependencies listed in the package metadata
+- **Note:** These are required dependencies listed in the package metadata: numpy and python-dateutil
 
 ### 30. Interoperable Software (OPTIONAL)
 - **Interoperable Software:**
-  - numpy
-  - pytz (optional)
-  - xarray (optional)
-  - matplotlib (optional)
-- **Source:** setup.cfg (install_requires and extras_require)
+  - https://github.com/numpy/numpy
+  - https://github.com/stub42/pytz
+  - https://github.com/pydata/xarray
+  - https://github.com/matplotlib/matplotlib
+- **Source:** setup.cfg (install_requires and extras_require), `src/sciencedates/tz.py`, and `src/sciencedates/ticks.py`
+- **Note:** These correspond to numpy, optional pytz timezone support, and optional xarray/matplotlib plotting support
 
 ### 31. Related Instruments (OPTIONAL)
 - **Related Instruments:** Not found

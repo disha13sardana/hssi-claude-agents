@@ -22,29 +22,25 @@
 
 ### 4. Software Functionality (MANDATORY)
 - **Coordinate Transforms**
-- **Coordinate Transforms:Heliospheric**
-- **Coordinate Transforms:Ionospheric**
-- **Coordinate Transforms:Magnetospheric**
 - **Data Processing and Analysis**
 - **Data Processing and Analysis:Analysis**
 
-**Source:** Manual examination of README.md and function list. PyMap3D provides coordinate conversions between multiple systems (geodetic, ECEF, ECI, ENU, NED, AER, spherical, geocentric) used extensively in heliophysics research. Primary functionality is coordinate transformation for ionospheric, magnetospheric, and heliospheric applications.
+**Source:** Manual examination of README.md, paper/paper.md, and the public API in src/pymap3d/__init__.py. PyMap3D provides coordinate conversions between multiple systems (geodetic, ECEF, ECI, ENU, NED, AER, RA/Dec, spherical, geocentric, n-vector, and downrange/crossrange/above coordinates), plus geodesy calculations such as Vincenty distances, rhumb lines, radius of curvature, and latitude transformations.
 
 ### 5. Related Region (MANDATORY)
 - **Earth Atmosphere**
 - **Earth Magnetosphere**
-- **Interplanetary Space**
 
-**Source:** PyHC registry classification ("ionosphere_thermosphere_mesosphere") and analysis of coordinate systems supported (ECI for interplanetary, geodetic/ENU for Earth regions). The software supports coordinate transformations commonly used across these physical regions.
+**Source:** PyHC registry classification ("ionosphere_thermosphere_mesosphere") and repository paper description of coordinate conversions for airborne, space-based, and remote sensing systems near Earth. The software supports coordinate transformations commonly used for Earth's atmosphere and near-Earth space environments.
 
 ### 6. Authors (MANDATORY)
 
 #### Author 1
-- **Name:** Michael Hirsch, Ph.D.
+- **Name:** Michael Hirsch
 - **Author Identifier:** https://orcid.org/0000-0002-1637-6526
-- **Affiliation:** SciVision, Inc.
-- **Affiliation Identifier:** Not found
-- **Source:** DataCite API, LICENSE file, CITATION.cff, git commit history (primary contributor with 750+ commits)
+- **Affiliation:** Boston University Department of Electrical and Computer Engineering; SciVision, Inc.
+- **Affiliation Identifier:** Boston University: https://ror.org/05qwgg493; SciVision, Inc.: Not found
+- **Source:** JOSS paper metadata, ORCID public record, DataCite API, LICENSE file, CITATION.cff, git commit history (primary contributor with 750+ commits)
 
 #### Author 2
 - **Name:** Ryan Pavlick
@@ -54,18 +50,18 @@
 - **Source:** DataCite API, git contributors
 
 #### Author 3
-- **Name:** cchuravy
+- **Name:** Cchuravy
 - **Author Identifier:** Not found
 - **Affiliation:** Not found
 - **Affiliation Identifier:** Not found
-- **Source:** DataCite API
+- **Source:** DataCite API; GitHub profile does not expose a full personal name
 
 #### Author 4
 - **Name:** Samuel Marks
 - **Author Identifier:** Not found
-- **Affiliation:** @offscale @stereostream
+- **Affiliation:** Not found
 - **Affiliation Identifier:** Not found
-- **Source:** DataCite API
+- **Source:** DataCite API and GitHub profile; raw social handles were not retained as formal affiliations
 
 #### Author 5
 - **Name:** Philippe Rivière
@@ -88,19 +84,19 @@
 - **Affiliation Identifier:** Not found
 - **Source:** LICENSE file (copyright holder)
 
-**Note:** CITATION.cff lists "SciVision" as the author name with ORCID 0000-0002-1637-6526. Based on git commit history and other metadata sources, this ORCID belongs to Michael Hirsch, Ph.D., and SciVision, Inc. is his organization.
+**Note:** CITATION.cff lists "SciVision" as the author name with ORCID 0000-0002-1637-6526. The repository JOSS paper and ORCID public record identify this ORCID as Michael Hirsch.
 
 ### 7. Software Name (MANDATORY)
 - **Name:** PyMap3D
-- **Source:** SoMEF, CITATION.cff, README.md
+- **Source:** PyHC registry (authoritative HSSI software name), SoMEF, CITATION.cff, README.md
 
 ### 8. Description (MANDATORY)
-Pure Python (no prerequisites beyond Python itself) 3-D geographic coordinate conversions and geodesy. Function syntax is roughly similar to Matlab Mapping Toolbox. PyMap3D is intended for non-interactive use on massively parallel (HPC) and embedded systems. The package provides coordinate transformations between multiple systems including geodetic, ECEF (Earth-Centered Earth-Fixed), ECI (Earth-Centered Inertial), ENU (East-North-Up), NED (North-East-Down), AER (Azimuth-Elevation-Range), and spherical coordinates. Numpy and AstroPy are optional dependencies; the library can operate with pure Python for most transforms, making it suitable for embedded systems and streaming data applications.
+Pure Python (no prerequisites beyond Python itself) 3-D geographic coordinate conversions and geodesy. Function syntax is roughly similar to Matlab Mapping Toolbox. PyMap3D is intended for non-interactive use on massively parallel (HPC) and embedded systems. The package provides coordinate transformations between multiple systems including geodetic, ECEF (Earth-Centered Earth-Fixed), ECI (Earth-Centered Inertial), ENU (East-North-Up), NED (North-East-Down), AER (Azimuth-Elevation-Range), and spherical coordinates. NumPy and Astropy are optional dependencies; the library can operate with pure Python for most transforms, making it suitable for embedded systems and streaming data applications.
 
 **Source:** README.md, pyproject.toml
 
 ### 9. Concise Description (OPTIONAL)
-Pure Python 3-D geographic coordinate conversions and geodesy for geospace applications, with optional Numpy/AstroPy support for enhanced accuracy.
+Pure Python 3-D geographic coordinate conversions and geodesy for geospace applications, with optional NumPy/Astropy support for enhanced accuracy.
 
 **Source:** Synthesized from README.md and pyproject.toml
 
@@ -167,7 +163,7 @@ Not found - PyMap3D is a computational library for coordinate transformations, n
 ### 18. Input File Formats (RECOMMENDED)
 Not applicable - PyMap3D operates on coordinate values (scalars or arrays) rather than file formats.
 
-**Note:** The library accepts Python numeric types, Numpy arrays, Pandas DataFrames, and Xarray objects as input.
+**Note:** The library accepts Python numeric types, NumPy arrays, Pandas DataFrames, and Xarray objects as input.
 
 ### 19. Output File Formats (RECOMMENDED)
 Not applicable - PyMap3D returns coordinate values (scalars or arrays) rather than writing to files.
@@ -192,14 +188,16 @@ Not found - No specific phenomena listed in available metadata sources.
 ### 23. Development Status (RECOMMENDED)
 - **Active**
 
-**Source:** SoMEF (date_updated: 2025-12-01), pyproject.toml classifier "Development Status :: 5 - Production/Stable", active releases through 2025
+**Source:** GitHub API (pushed_at: 2026-03-05; updated_at: 2026-04-07), pyproject.toml classifier "Development Status :: 5 - Production/Stable", active releases through 2025
 
 ### 24. Documentation (RECOMMENDED)
 - **URL:** https://geospace-code.github.io/pymap3d/
 - **Source:** README.md
 
 ### 25. Funder (OPTIONAL)
-Not found
+- **Organization:** United States Air Force Office of Scientific Research
+- **Funder Identifier:** https://ror.org/011e9bt93
+- **Source:** codemeta.json lists "AFOSR"; ROR identifies AFOSR as the United States Air Force Office of Scientific Research
 
 ### 26. Award Title (OPTIONAL)
 Not found
@@ -223,11 +221,11 @@ Not found
 - **Source:** DataCite API (relatedIdentifiers with relationType: IsCitedBy)
 
 #### Publication 4
-- **Handle:** 11250/2566894
+- **URL:** https://hdl.handle.net/11250/2566894
 - **Source:** DataCite API (relatedIdentifiers with relationType: IsCitedBy)
 
 #### Publication 5
-- **URL:** http://id.nii.ac.jp/1342/00001621
+- **URL:** https://oacis.repo.nii.ac.jp/records/1650
 - **Source:** DataCite API (relatedIdentifiers with relationType: IsCitedBy)
 
 ### 28. Related Datasets (OPTIONAL)
@@ -257,38 +255,44 @@ Not found
 
 #### Software 5
 - **Name:** PyProj
-- **URL:** https://github.com/jswhit/pyproj
+- **URL:** https://github.com/pyproj4/pyproj
 - **Source:** README.md (comparison/notes section)
 
 #### Software 6
-- **Name:** AstroPy
+- **Name:** Astropy
+- **URL:** https://github.com/astropy/astropy
 - **Description:** Optional dependency for high-accuracy ECI transformations
 - **Source:** README.md, pyproject.toml
 
 #### Software 7
-- **Name:** Numpy
+- **Name:** NumPy
+- **URL:** https://github.com/numpy/numpy
 - **Description:** Optional dependency for array operations
 - **Source:** README.md, pyproject.toml
 
 ### 30. Interoperable Software (OPTIONAL)
 
 #### Software 1
-- **Name:** Numpy
-- **Description:** Tested with Numpy arrays
+- **Name:** NumPy
+- **URL:** https://github.com/numpy/numpy
+- **Description:** Tested with NumPy arrays
 - **Source:** README.md, pyproject.toml, test suite
 
 #### Software 2
 - **Name:** Pandas
+- **URL:** https://github.com/pandas-dev/pandas
 - **Description:** Tested with Pandas DataFrames
 - **Source:** README.md ("added several tests so that Pandas and Xarray are functioning")
 
 #### Software 3
 - **Name:** Xarray
+- **URL:** https://github.com/pydata/xarray
 - **Description:** Tested with Xarray objects
 - **Source:** README.md, pyproject.toml optional dependencies
 
 #### Software 4
-- **Name:** AstroPy
+- **Name:** Astropy
+- **URL:** https://github.com/astropy/astropy
 - **Description:** Used for high-accuracy astronomical conversions when available
 - **Source:** README.md, pyproject.toml
 
@@ -323,12 +327,11 @@ Not found
 - Comprehensive documentation available
 - Author information limited (mostly GitHub usernames, few ORCIDs)
 - No recent Zenodo DOI for latest versions (last DOI is from 2019)
-- No funder information found
+- Funder information is present in codemeta.json (AFOSR)
 - Limited structured metadata beyond basic fields
 
 **Recommendations for Improvement:**
 1. Create Zenodo DOIs for recent versions (v2.x - v3.x)
 2. Add ORCID identifiers for all authors in CITATION.cff
-3. Add funder information if applicable
-4. Consider adding ROR identifiers for institutional affiliations
-5. Add more structured keywords from controlled vocabularies (AGU, UAT)
+3. Consider adding ROR identifiers for institutional affiliations
+4. Add more structured keywords from controlled vocabularies (AGU, UAT)

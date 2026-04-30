@@ -22,15 +22,18 @@
 ### 4. Software Functionality (MANDATORY)
 - **Selected Functionalities:**
   - Coordinate Transforms
+  - Coordinate Transforms:Mission-Specific
+  - Data Processing and Analysis
   - Data Processing and Analysis:Data Access and Retrieval
   - Data Processing and Analysis:Data Reduction
   - Data Processing and Analysis:File Format Conversion
   - Data Processing and Analysis:Image Processing
   - Data Processing and Analysis:Processing
+  - Data Visualization
   - Data Visualization:2D Graphics
   - Data Visualization:Line Plots
   - Data Visualization:Movies
-- **Source:** Manual analysis of code and documentation. The software downloads, reads, calibrates, and visualizes THEMIS ASI ground-based aurora imager data. It performs coordinate transformations (az/el to RA/Dec), processes 256x256 images with calibration data, plots time series, and plays back video sequences.
+- **Source:** Manual analysis of code and documentation. The software downloads, reads, calibrates, and visualizes THEMIS ASI ground-based aurora imager data. It performs instrument/FOV coordinate handling with plate-scale azimuth/elevation calibration data, processes 256x256 images, plots time series, and plays back video sequences.
 
 ### 5. Related Region (MANDATORY)
 - **Selected Regions:**
@@ -48,9 +51,9 @@
 - **Source:** DataCite API, PyHC registry. Note: Only one author listed in available metadata sources.
 
 ### 7. Software Name (MANDATORY)
-- **Name:** themisasi
+- **Name:** THEMISasi
 - **Full Title:** THEMIS GBO ASI Reader
-- **Source:** DataCite API, SoMEF, README
+- **Source:** PyHC registry official software name; DataCite API, SoMEF, README, and package metadata use the package/repository spelling `themisasi`.
 
 ### 8. Description (MANDATORY)
 - **Description:** Read & plot 256x256 "high resolution" THEMIS ASI ground-based imager data from Python. THEMIS ASI data are collected with the original 2002 design, using Starlight-Xpress Lodestar MX716 cameras with monochrome Sony ICX249AL imaging chips. A subregion from full-size 752 x 582 pixels (512 x 512 pixels) are 2x2 binned to 256 x 256 pixels and retrieved over USB 1.1 for disk storage. This package also reads the THEMIS ASI star registered plate scale, giving azimuth and elevation for each pixel. The software supports downloading data concurrently using asyncio, loading calibration data with azimuth/elevation information, coordinate conversion to RA/Dec, video playback, and plotting pixel time series.
@@ -66,7 +69,7 @@
 
 ### 11. Publisher (RECOMMENDED)
 - **Organization:** Zenodo
-- **Publisher Identifier:** https://ror.org/03cpe7c52
+- **Publisher Identifier:** https://zenodo.org
 - **Source:** DataCite API
 
 ### 12. Version (RECOMMENDED)
@@ -90,10 +93,10 @@
 
 ### 13. Programming Language (RECOMMENDED)
 - **Languages:**
-  - Python 3.x (requires Python >= 3.10)
+  - Python 3.x
   - MATLAB
   - IDL
-- **Source:** SoMEF (GitHub API programming_languages), pyproject.toml (Python version requirement)
+- **Source:** SoMEF (GitHub API programming_languages), pyproject.toml (current Python requirement >=3.12), MATLAB scripts in matlab/, and IDL script in idl/
 
 ### 14. Reference Publication (RECOMMENDED)
 - **DOI:** Not found
@@ -125,8 +128,9 @@
 
 ### 17. Data Sources (OPTIONAL)
 - **Data Sources:**
-  - HTTP/HTTPS Directories (THEMIS data repository at http://themis.ssl.berkeley.edu/data/themis/thg/l1/asi/)
-  - Observatory/Mission-specific (THEMIS mission data)
+  - HTTP/HTTPS Directories
+  - Observatory/Mission-specific
+- **Note:** The software downloads THEMIS GBO ASI data and calibration files from THEMIS HTTPS directories.
 - **Source:** README documentation, code examination
 
 ### 18. Input File Formats (RECOMMENDED)
@@ -139,10 +143,9 @@
 
 ### 19. Output File Formats (RECOMMENDED)
 - **Formats:**
-  - ascii (PNG images for video frames)
-  - netCDF3/4 (via xarray output capabilities)
-  - HDF5 (via xarray output capabilities)
-- **Source:** README mentions PNG output for video frames; xarray Dataset output supports netCDF and HDF5
+  - Other
+- **Note:** PNG image output for video frames and plot frames.
+- **Source:** README "Video Playback / PNG conversion" section; src/themisasi/plots.py and src/themisasi/projections.py use matplotlib savefig for image output.
 
 ### 20. Operating System (RECOMMENDED)
 - **Operating Systems:**
@@ -153,10 +156,8 @@
 
 ### 21. CPU Architecture (RECOMMENDED)
 - **Architecture:**
-  - x86-64
-  - Apple Silicon arm64 (inferred from macOS support)
   - CPU Independent
-- **Source:** Inferred from OS support and Python package nature
+- **Source:** Pure Python package with OS-independent classifier; no architecture-specific compiled extension or CI architecture matrix found.
 
 ### 22. Related Phenomena (OPTIONAL)
 - **Phenomena:**
@@ -166,7 +167,7 @@
 
 ### 23. Development Status (RECOMMENDED)
 - **Status:** Active
-- **Source:** SoMEF, pyproject.toml classifier "Development Status :: 5 - Production/Stable", recent commit activity (last updated 2025-03-02 according to SoMEF)
+- **Source:** pyproject.toml classifier "Development Status :: 5 - Production/Stable"; current repository activity includes commit 397b950 on 2026-03-11.
 
 ### 24. Documentation (RECOMMENDED)
 - **Documentation URL:** https://github.com/space-physics/themisasi/blob/main/README.md

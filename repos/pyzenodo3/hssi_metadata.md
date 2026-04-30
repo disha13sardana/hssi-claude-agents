@@ -12,29 +12,28 @@
 - **Submitter Email:** [To be filled by actual submitter]
 
 ### 2. Persistent Identifier (RECOMMENDED)
-- **DOI:** https://doi.org/10.5281/zenodo.3239431 (Concept DOI for all versions)
-- **Source:** DataCite API, Zenodo API
+- **DOI:** https://doi.org/10.5281/zenodo.3239431
+- **Source:** DataCite API, Zenodo API. This is the concept DOI for all versions.
 
 ### 3. Code Repository (MANDATORY)
 - **Repository URL:** https://github.com/space-physics/pyzenodo3
 - **Source:** DataCite API, SoMEF, PyHC registry
 
 ### 4. Software Functionality (MANDATORY)
+- **Data Processing and Analysis**
 - **Data Processing and Analysis:Data Access and Retrieval**
-- **Servers and Environments:Distribution/Access**
-- **Source:** Manual analysis of repository code and documentation. PyZenodo3 is a Python wrapper for the Zenodo REST API that enables uploading, downloading, and searching data on Zenodo.
+- **Source:** Manual analysis of repository code and documentation. PyZenodo is a Python wrapper for the Zenodo REST API that enables searching/retrieving Zenodo records and uploading files and metadata to Zenodo.
 
 ### 5. Related Region (MANDATORY)
 - **Earth Atmosphere**
 - **Earth Magnetosphere**
 - **Solar Environment**
-- **Interplanetary Space**
-- **Source:** PyHC registry keywords (ionosphere_thermosphere_mesosphere, magnetosphere, solar). As a general data access tool for Zenodo (which hosts heliophysics data across all regions), this tool supports multiple regions.
+- **Source:** PyHC registry keywords (ionosphere_thermosphere_mesosphere, magnetosphere, solar). PyZenodo is a general Zenodo API client; these regions reflect the PyHC registry classification rather than region-specific algorithms in the code.
 
 ### 6. Authors (MANDATORY)
 
 #### Author 1
-- **Authors:** Michael Hirsch, Ph.D.
+- **Authors:** Michael Hirsch
 - **Author Identifier:** Not found
 - **Affiliation:**
   - **Organization:** Not found
@@ -52,15 +51,15 @@
 **Note:** GitHub username "kasbah" mentioned in release notes as contributor but not listed as primary author.
 
 ### 7. Software Name (MANDATORY)
-- **Software Name:** PyZenodo3
-- **Source:** README.md, SoMEF, PyHC registry (listed as "PyZenodo")
+- **Software Name:** PyZenodo
+- **Source:** PyHC registry authoritative name and README.md title. Package and repository identifiers use `pyzenodo3`.
 
 ### 8. Description (MANDATORY)
-- **Description:** PyZenodo3 is a pure Python wrapper for the Zenodo REST API that allows upload and download of data from Zenodo. It provides a simple, clean Python 3 interface for interacting with Zenodo repositories, including functionality to upload files to Zenodo, download data from Zenodo, search Zenodo records by GitHub repository or username, and manage Zenodo metadata. The package includes a `--use-sandbox` flag to avoid cluttering Zenodo with test uploads during development. PyZenodo3 is useful for researchers who need to programmatically deposit or retrieve datasets from Zenodo as part of their data management workflows.
+- **Description:** PyZenodo, distributed as the `pyzenodo3` Python package, is a pure Python wrapper for the Zenodo REST API. It provides a Python 3 interface for interacting with Zenodo records, including functionality to search Zenodo by query, GitHub repository, or DOI; retrieve record/version metadata; prepare Zenodo metadata from `.ini` files; and upload files to Zenodo depositions. The package includes a `--use-sandbox` flag to avoid cluttering Zenodo with test uploads during development. PyZenodo is useful for researchers who need to programmatically deposit datasets or inspect Zenodo records as part of their data management workflows.
 - **Source:** Compiled from README.md, DataCite API, SoMEF, and PyHC registry
 
 ### 9. Concise Description (OPTIONAL)
-- **Concise Description:** Pure Python wrapper for the Zenodo REST API that enables programmatic upload, download, and search of data on Zenodo.
+- **Concise Description:** Pure Python wrapper for the Zenodo REST API that enables programmatic record search, metadata retrieval, and file upload.
 - **Source:** Derived from README.md and package description
 
 ### 10. Publication Date (RECOMMENDED)
@@ -74,19 +73,14 @@
 
 ### 12. Version (RECOMMENDED)
 
-#### Latest Release (v1.0.2)
-- **Version Number:** v1.0.2
+#### Latest Published Release (1.0.2)
+- **Version Number:** 1.0.2
 - **Version Date:** 2020-04-28
 - **Version Description:** Added `upload_zenodo.py --use-sandbox` flag to avoid cluttering Zenodo with test uploads (thanks to @kasbah). Moved package to src/ layout.
 - **Version PID:** https://doi.org/10.5281/zenodo.3772154
-- **Source:** DataCite API, Zenodo API, SoMEF releases
+- **Source:** DataCite API, Zenodo API, GitHub Releases, PyPI
 
-#### Current Development Version
-- **Version Number:** v1.1.0
-- **Version Date:** Not found (unreleased development version)
-- **Version Description:** Not found
-- **Version PID:** Not found
-- **Source:** setup.cfg
+**Repository note:** `setup.cfg` declares version 1.1.0 on the main branch, but no GitHub, PyPI, or Zenodo release or DOI was found for 1.1.0.
 
 **Other Available Versions:**
 - v1.0.1 (2019-11-11): Modernized packaging, moved CI to Github actions, fixed issue #1
@@ -124,13 +118,13 @@
 - **Source:** Manual analysis - the software accesses Zenodo as a data source
 
 ### 18. Input File Formats (RECOMMENDED)
-- **Not applicable** - PyZenodo3 works with Zenodo's REST API and accepts metadata in .ini format for uploads. It does not directly process specific scientific data file formats.
+- **Other** (.ini metadata files for uploads; arbitrary payload files are passed through to Zenodo rather than parsed as scientific data files)
 - **Source:** Manual analysis of README.md and code
 
 ### 19. Output File Formats (RECOMMENDED)
 - **JSON** (API responses)
-- **Other** (downloads files in their original format from Zenodo)
-- **Source:** Manual analysis of code (base.py shows JSON API responses)
+- **Other** (metadata JSON files generated from `.ini` upload metadata)
+- **Source:** Manual analysis of code (`base.py` returns JSON API responses; `upload.py` writes JSON metadata files)
 
 ### 20. Operating System (RECOMMENDED)
 - **Linux**
@@ -148,15 +142,15 @@
 - **Note:** This is a general data access tool, not specific to particular heliophysics phenomena.
 
 ### 23. Development Status (RECOMMENDED)
-- **Active** (or **WIP**)
+- **Inactive**
 - **Source:**
-  - Last update: 2025-11-19 (from SoMEF)
+  - GitHub default branch `main` points to commit `09bdb3f9f0ac9961f74220a21ca6d4fd666e198a`, dated 2021-04-27
+  - Latest GitHub, PyPI, and Zenodo release is 1.0.2 from 2020-04-28
   - setup.cfg classifiers indicate "Development Status :: 4 - Beta"
-  - GitHub shows recent activity
-  - Current version in setup.cfg (v1.1.0) is ahead of latest release (v1.0.2), suggesting active development
+  - Repository is not archived or disabled, so Inactive is more appropriate than Abandoned or Unsupported
 
 ### 24. Documentation (RECOMMENDED)
-- **Documentation URL:** https://github.com/space-physics/pyzenodo3/blob/main/README.md
+- **Documentation URL:** https://github.com/space-physics/pyzenodo3
 - **Source:** README.md serves as primary documentation. No separate documentation site found (no ReadTheDocs or similar).
 
 ### 25. Funder (OPTIONAL)
@@ -180,10 +174,10 @@
 - **Source:** Manual analysis
 
 ### 29. Related Software (OPTIONAL)
-- **Zenodo** (the service this library wraps)
-- **requests** (Python dependency)
-- **beautifulsoup4** (Python dependency)
-- **Source:** setup.cfg dependencies
+- https://github.com/zenodo/zenodo (Zenodo platform wrapped by this client)
+- https://github.com/psf/requests (Python dependency)
+- https://www.crummy.com/software/BeautifulSoup/ (Beautiful Soup / beautifulsoup4 Python dependency)
+- **Source:** setup.cfg dependencies and README.md usage description
 
 ### 30. Interoperable Software (OPTIONAL)
 - Not found

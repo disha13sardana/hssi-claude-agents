@@ -23,12 +23,17 @@
 ### 4. Software Functionality (MANDATORY)
 **Values:**
 - Models and Simulations
+- Models and Simulations:Empirical
 - Models and Simulations:Physics-Based
 - Data Processing and Analysis
 - Data Processing and Analysis:Analysis
+- Data Processing and Analysis:Processing
+- Data Visualization
+- Data Visualization:2D Graphics
+- Data Visualization:Line Plots
 
 **Source:** Manual analysis of code and documentation
-**Rationale:** This software is a physics-based model of auroral electron precipitation and ionization processes in Earth's ionosphere. It calculates excitation rates and ionization profiles based on the Rees-Sergienko-Ivanov model. It also performs analysis of atmospheric data using the MSISE-00 model.
+**Rationale:** This software is a parameter-fit, physics-based model of auroral electron precipitation and ionization processes in Earth's ionosphere. It calculates excitation rates, ionization profiles, electron energy degradation, albedo, pitch-angle range, and altitude/energy grids based on the Rees-Sergienko-Ivanov model. It processes MSISE-00 atmospheric densities and includes Matplotlib plotting routines for 2D production-rate and line-plot figures.
 
 ### 5. Related Region (MANDATORY)
 **Values:**
@@ -40,19 +45,20 @@
 ### 6. Authors (MANDATORY)
 
 #### Author 1:
-- **Authors:** Michael Hirsch, Ph.D.
+- **Authors:** Michael Hirsch
 - **Author Identifier:** Not found
 - **Affiliation:**
   - **Organization:** SciVision, Inc.
   - **Affiliation Identifier:** Not found
 
 **Source:** DataCite API, setup.cfg
-**Note:** Author email (scivision@users.noreply.github.com) is available but appears to be a GitHub no-reply address
+**Note:** setup.cfg lists the author as "Michael Hirsch, Ph.D"; the name is normalized here without the degree suffix. Author email (scivision@users.noreply.github.com) is available but appears to be a GitHub no-reply address
 
 ### 7. Software Name (MANDATORY)
-**Name:** reesaurora
+**Name:** ReesAurora
 **Full Title:** Rees-Sergienko-Ivanov Auroral model
 **Source:** PyHC registry, setup.cfg, README.md, SoMEF
+**Note:** ReesAurora is the official PyHC package name. The Python distribution and repository use the lowercase name reesaurora.
 
 ### 8. Description (MANDATORY)
 **Description:** Rees-Sergienko-Ivanov model of excitation rates, relevant to auroral optical emissions. This physics-based model simulates auroral electron precipitation and ionization processes in Earth's ionosphere. The model is designed for electron energies in the range of 100-10,000 eV and uses the MSISE-00 atmospheric model to generate O, O₂, and N₂ densities. It calculates the ionization profiles and volume emission rates as a function of altitude resulting from primary electron precipitation on the neutral atmospheric background. The model is based on work by Gustavsson and Brandström (AIDA_TOOLS) and implements the approach described in Sergienko and Ivanov (1993).
@@ -96,7 +102,7 @@
 - MATLAB
 
 **Source:** SoMEF, setup.cfg, CI workflow
-**Note:** Requires Python >= 3.7. The software primarily uses Python with some MATLAB compatibility code.
+**Note:** Requires Python >= 3.7. The software primarily uses Python; the repository also contains a small MATLAB test/example file.
 
 ### 14. Reference Publication (RECOMMENDED)
 **Reference Publication:** Not found
@@ -128,7 +134,7 @@
 **Source:** setup.cfg, PyHC registry, README.md, SoMEF
 
 ### 17. Data Sources (OPTIONAL)
-**Data Sources:** Not applicable
+**Data Sources:** Not found
 **Note:** This is a model/simulation tool that generates data rather than retrieving it from external sources. It uses the embedded MSISE-00 atmospheric model for atmospheric density inputs.
 
 ### 18. Input File Formats (RECOMMENDED)
@@ -136,13 +142,13 @@
 - HDF5
 
 **Source:** Code analysis
-**Note:** The software reads HDF5 files containing Sergienko-Ivanov model parameters (data/SergienkoIvanov.h5)
+**Note:** The repository includes a bundled HDF5 parameter file, data/SergienkoIvanov.h5, used as the model coefficient/input data path in the CLI and tests. Primary user-facing model inputs are time, location, altitude grid, and energy grid values.
 
 ### 19. Output File Formats (RECOMMENDED)
 **Formats:**
 - HDF5
 
-**Source:** Code analysis (ReesSergienkoIvanov.py:62)
+**Source:** README.md, code analysis (ReesSerginekoIvanov.py:62)
 **Note:** Outputs eigenprofile production data in HDF5 format via the writeeigen function from gridaurora package
 
 ### 20. Operating System (RECOMMENDED)
@@ -164,14 +170,14 @@
 **Note:** The software relates to auroral phenomena including auroral optical emissions and ionospheric ionization, but these specific terms were not found in the standard controlled vocabulary.
 
 ### 23. Development Status (RECOMMENDED)
-**Status:** Active
-**Source:** Inference from setup.cfg (Development Status :: 4 - Beta) and recent repository activity (last updated 2023-01-27)
-**Note:** While classified as "Beta" in setup.cfg, the repository shows continued maintenance and the software has reached a stable, usable state.
+**Status:** Inactive
+**Source:** setup.cfg (Development Status :: 4 - Beta), git history, GitHub release metadata
+**Note:** The package has stable public releases through v1.0.5, but the latest tag was published on 2018-07-30 and the latest repository commit is from 2021-04-27, so it is best described as usable but not actively developed.
 
 ### 24. Documentation (RECOMMENDED)
-**Documentation URL:** https://github.com/space-physics/reesaurora/blob/main/README.md
+**Documentation URL:** https://github.com/space-physics/reesaurora
 **Source:** Repository examination
-**Note:** Primary documentation is in the README.md file. No separate documentation website was found.
+**Note:** Primary documentation and installation instructions are in the repository README. No separate documentation website was found.
 
 ### 25. Funder (OPTIONAL)
 **Funder:** Not found
@@ -187,13 +193,13 @@
 
 ### 27. Related Publications (OPTIONAL)
 **Related Publications:**
-No DOIs found, but the following papers are referenced in the code as the scientific basis:
+The following publications are referenced in the code as the scientific basis:
 
-- Rees, M. H. (1989) - Physics and Chemistry of the Upper Atmosphere
-- Sergienko, T., and Ivanov, V. E. (1993) "A new approach to calculate the excitation of atmospheric gases by auroral electron impact" Annales Geophysicae
-- Wedlund et al. (2013) "Electron Energy Spectra and Auroral Arcs" Journal of Geophysical Research
+- Rees, M. H. (1989). Physics and Chemistry of the Upper Atmosphere. https://doi.org/10.1017/CBO9780511573118
+- Sergienko, T., and Ivanov, V. E. (1993). "A new approach to calculate the excitation of atmospheric gases by auroral electron impact." Annales Geophysicae, 11, 717-727.
+- Simon Wedlund et al. (2013). "Electron Energy Spectra and Auroral Arcs." Journal of Geophysical Research: Space Physics. https://doi.org/10.1002/jgra.50347
 
-**Source:** Code comments in ReesSergienkoIvanov.py and __init__.py
+**Source:** Code comments in ReesSerginekoIvanov.py and reesaurora/__init__.py; publisher DOI records
 
 ### 28. Related Datasets (OPTIONAL)
 **Related Datasets:** Not found
@@ -207,21 +213,22 @@ No DOIs found, but the following papers are referenced in the code as the scient
    - Note: Used to generate atmospheric densities (O, O₂, N₂)
 
 2. **gridaurora** - Aurora grid utilities (required dependency)
+   - Repository: https://github.com/space-physics/gridaurora
    - Note: Provides altitude grid generation and data output functions
 
 3. **AIDA_TOOLS** - Original implementation
-   - Repository: https://github.com/scivision/AIDA-tools
+   - Repository: https://github.com/space-physics/AIDA-tools
    - Note: This software is inspired by/based upon the AIDA_TOOLS package by Gustavsson and Brandström
 
 **Source:** setup.cfg dependencies, README.md
 
 ### 30. Interoperable Software (OPTIONAL)
 **Interoperable Software:**
-- numpy
-- scipy
-- xarray
-- matplotlib
-- seaborn
+- numpy - https://github.com/numpy/numpy
+- scipy - https://github.com/scipy/scipy
+- xarray - https://github.com/pydata/xarray
+- matplotlib - https://github.com/matplotlib/matplotlib
+- seaborn - https://github.com/mwaskom/seaborn
 
 **Source:** setup.cfg install_requires and extras_require
 **Note:** These are standard scientific Python packages that the software uses and demonstrates interoperability with

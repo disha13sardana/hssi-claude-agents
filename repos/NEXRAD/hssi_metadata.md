@@ -23,14 +23,15 @@
 ### 4. Software Functionality (MANDATORY)
 **Values:**
 - Coordinate Transforms
+- Data Processing and Analysis
 - Data Processing and Analysis:Data Access and Retrieval
+- Data Processing and Analysis:Data Reduction
 - Data Processing and Analysis:Image Processing
-- Data Processing and Analysis:Time Series Analysis
+- Data Visualization
 - Data Visualization:2D Graphics
-- Data Visualization:Line Plots
 
 **Source:** Manual code analysis
-**Analysis:** The software downloads NEXRAD composite reflectivity PNG images from the Iowa State University archive, loads and processes them with geospatial coordinates from WLD world files, performs coordinate transformations from pixel coordinates to WGS84 latitude/longitude, creates georeferenced map visualizations using Cartopy, and generates keograms (time-longitude/time-latitude plots) for time series analysis.
+**Analysis:** The software downloads NEXRAD composite reflectivity PNG images from the Iowa State University archive, loads and processes them with geospatial coordinates from WLD world files, can downsample imagery for reduced-size analysis, performs coordinate transformations from pixel coordinates to WGS84 latitude/longitude, creates georeferenced map visualizations using Cartopy, and generates keogram image plots from latitude or longitude cuts.
 
 ### 5. Related Region (MANDATORY)
 **Values:**
@@ -41,7 +42,7 @@
 
 ### 6. Authors (MANDATORY)
 **Author 1:**
-- **Authors:** Michael Hirsch, Ph.D.
+- **Authors:** Michael Hirsch
 - **Author Identifier:** Not found
 - **Affiliation:**
   - **Organization:** Not found
@@ -50,9 +51,9 @@
 **Source:** setup.cfg, LICENSE file, DataCite API
 
 ### 7. Software Name (MANDATORY)
-**Value:** NEXRAD-quickplot
-**Alternate Names:** NEXRADutils (former repository name), NEXRAD
-**Source:** setup.cfg (name field), PyHC registry, README
+**Value:** NEXRADutils
+**Alternate Names:** NEXRAD-quickplot (Python package/distribution name), NEXRAD (current repository name)
+**Source:** PyHC registry, setup.cfg (package name field), README
 
 ### 8. Description (MANDATORY)
 **Value:** Easy Python download and plot NEXRAD N0Q composite reflectivity. Uses RGB high resolution PNG images of North America. The software downloads NEXRAD composite reflectivity data showing weather radar returns and creates georeferenced visualizations on maps using Cartopy. It supports downloading data from the Iowa State archive with parallel downloads, loading images with WGS84 coordinates from .wld files, plotting on geographic maps with state boundaries and coastlines, and creating keograms (time-series plots along latitude or longitude cuts). RGB data scaling covers -32 dBZ to 90 dBZ in 0.5 dBZ increments. These are reduced fidelity RGB images suitable for overview analysis; contact authors for high-fidelity science data.
@@ -127,26 +128,23 @@
 
 ### 18. Input File Formats (RECOMMENDED)
 **Values:**
-- Other (PNG with WLD world files)
+- Other
 
 **Source:** Manual code analysis
 **Note:** Uses PNG images for NEXRAD reflectivity data and WLD (ESRI World File) for geospatial coordinates in EPSG:4326 (WGS84)
 
 ### 19. Output File Formats (RECOMMENDED)
 **Values:**
-- Other (PNG plots)
+- Other
 
 **Source:** Manual code analysis
 **Note:** Outputs georeferenced map plots and keograms as PNG images
 
 ### 20. Operating System (RECOMMENDED)
 **Values:**
-- Linux
-- Mac
-- Windows
 - OS Independent
 
-**Source:** setup.cfg (Operating System :: OS Independent), GitHub Actions CI (ubuntu-latest tested), code analysis (Windows-specific filename handling present)
+**Source:** setup.cfg (Operating System :: OS Independent)
 
 ### 21. CPU Architecture (RECOMMENDED)
 **Values:**
@@ -159,8 +157,9 @@
 **Note:** NEXRAD measures atmospheric phenomena (precipitation, storms) but specific heliophysics phenomena controlled vocabulary terms not identified
 
 ### 23. Development Status (RECOMMENDED)
-**Value:** Active
-**Source:** setup.cfg classifier (Development Status :: 5 - Production/Stable), recent commits visible through 2023
+**Value:** Inactive
+**Source:** Git history and release tags
+**Note:** Latest source-code commit and latest tagged release are from 2021-04-27; repository metadata indicates production/stable maturity, but no evidence of active recent development was found.
 
 ### 24. Documentation (RECOMMENDED)
 **Value:** https://github.com/space-physics/NEXRAD
@@ -191,15 +190,15 @@
 
 ### 29. Related Software (OPTIONAL)
 **Values:**
-- xarray (data structure dependency)
-- Cartopy (mapping dependency)
-- imageio (image I/O dependency)
+- xarray — https://github.com/pydata/xarray
+- Cartopy — https://github.com/SciTools/cartopy
+- imageio — https://github.com/imageio/imageio
 
 **Source:** setup.cfg install_requires
 **Note:** Key dependencies for core functionality; no DOIs found for these dependencies
 
 ### 30. Interoperable Software (OPTIONAL)
-**Value:** xarray
+**Value:** xarray — https://github.com/pydata/xarray
 **Source:** Code analysis
 **Note:** Uses xarray.DataArray as primary data structure, enabling interoperability with xarray-compatible packages
 
@@ -343,7 +342,7 @@ Available versions from GitHub releases and Zenodo:
 - Version control with semantic versioning
 - DOI available through Zenodo
 - Listed in PyHC registry
-- Active development status
+- Stable released version available
 
 **Metadata Gaps:**
 - No author ORCID or affiliation

@@ -21,13 +21,14 @@
 
 ### 4. Software Functionality (MANDATORY)
 - **Values:**
+  - Data Processing and Analysis
+  - Data Processing and Analysis:Data Access and Retrieval
   - Models and Simulations
   - Models and Simulations:Empirical
   - Data Visualization
   - Data Visualization:Line Plots
   - Data Visualization:2D Graphics
-  - Data Visualization:Movies
-- **Note:** MSISE-00 is an empirical atmospheric model (NRL Mass Spectrometer and Incoherent Scatter radar Extended model) that provides temperature and density data. It includes plotting and visualization capabilities, including time animations (movies) as shown in the demo.
+- **Note:** MSISE-00 is an empirical atmospheric model (NRL Mass Spectrometer and Incoherent Scatter radar Extended model) that provides temperature and density data. It retrieves geomagnetic and solar indices through geomagindices when they are not supplied by the user and includes static line and 2D plotting capabilities.
 
 ### 5. Related Region (MANDATORY)
 - **Values:**
@@ -40,9 +41,9 @@
 - **Name:** scivision
 - **Author Identifier:** Not found
 - **Affiliation:**
-  - **Organization:** SciVision, Inc.
+  - **Organization:** Not found
   - **Affiliation Identifier:** Not found
-- **Source:** DataCite API, Zenodo API, LICENSE.txt (Copyright holder)
+- **Source:** DataCite API, Zenodo API
 
 #### Author 2:
 - **Name:** Daniel Kastinen
@@ -57,10 +58,10 @@
 - **Note:** Listed as contact in PyHC registry
 
 ### 7. Software Name (MANDATORY)
-- **Name:** msise00
+- **Name:** MSISE-00
 - **Full Title:** MSISE-00 in Python and Matlab
-- **Alternate Name:** MSISE-00
-- **Source:** GitHub repository name, README, PyHC registry, pyproject.toml
+- **Alternate Name:** msise00
+- **Source:** PyHC registry authoritative name, GitHub repository name, README, pyproject.toml
 
 ### 8. Description (MANDATORY)
 - **Description:** NRL MSISE-00 atmospheric model-- in Python and Matlab. Python API for Fortran MSISE-00 neutral atmosphere model. The MSISE-00 model provides atmospheric temperature and density from ground to thermospheric heights. Valid from altitude z = 0..1000 km. Outputs include temperature (Kelvin), density (particles per cubic meter), and mass density (kilograms per cubic meter).
@@ -97,11 +98,11 @@
 
 ### 13. Programming Language (RECOMMENDED)
 - **Languages:**
-  - Fortran (primary implementation language - 368,365 bytes)
-  - Python 3.x (Python wrapper - 25,179 bytes)
-  - MATLAB (10,184 bytes)
-  - CMake
-- **Source:** SoMEF (GitHub API), pyproject.toml (requires Python >=3.9)
+  - Fortran77
+  - Fortran90
+  - Python 3.x
+  - MATLAB
+- **Source:** Repository source files include Fortran 77/90, Python, and MATLAB; pyproject.toml requires Python >=3.11
 
 ### 14. Reference Publication (RECOMMENDED)
 - **DOI:** https://doi.org/10.1029/2002JA009430
@@ -130,18 +131,19 @@
 - **Source:** SoMEF (GitHub topics), pyproject.toml, PyHC registry
 
 ### 17. Data Sources (OPTIONAL)
-- **Values:** Not found
-- **Note:** The model uses geomagnetic indices (Ap and F10.7) which are obtained via the geomagindices package, but specific data sources are not explicitly listed
+- **Values:**
+  - Other
+- **Note:** The model uses geomagnetic and solar indices (Ap and F10.7) obtained via the geomagindices package when indices are not supplied by the user; the repository does not identify the underlying archive directly.
 
 ### 18. Input File Formats (RECOMMENDED)
 - **Formats:**
-  - Not applicable (uses programmatic inputs rather than files)
+  - Not found
 - **Note:** Model takes programmatic inputs (time, altitude, latitude, longitude, geomagnetic indices) rather than reading from data files
 
 ### 19. Output File Formats (RECOMMENDED)
 - **Formats:**
-  - netCDF3/4 (via xarray.Dataset)
-  - HDF5 (NetCDF4 output is HDF5 compatible, as mentioned in README)
+  - netCDF3/4
+  - HDF5
 - **Note:** Outputs xarray.Dataset objects which can be written to NetCDF4/HDF5
 - **Source:** README.md mentions "Write NetCDF4 output (HDF5 compatible)"
 
@@ -150,14 +152,14 @@
   - Linux
   - Mac
   - Windows
-  - OS Independent (Python-based with Fortran compilation)
+  - OS Independent
 - **Source:** CI configuration (.github/workflows/ci.yml), pyproject.toml classifier "Operating System :: OS Independent"
 
 ### 21. CPU Architecture (RECOMMENDED)
 - **Architectures:**
-  - x86-64 (tested on ubuntu-latest, macos-latest)
-  - CPU Independent (Python with Fortran compilation)
-- **Source:** CI workflows test on standard x86-64 architectures
+  - x86-64
+  - CPU Independent
+- **Source:** CI workflows test on standard x86-64 architectures; Python package is CPU independent apart from requiring a Fortran compiler
 
 ### 22. Related Phenomena (OPTIONAL)
 - **Values:** Not found
@@ -165,13 +167,13 @@
 
 ### 23. Development Status (RECOMMENDED)
 - **Status:** Active
-- **Source:** pyproject.toml classifier "Development Status :: 5 - Production/Stable", recent commits (last updated 2025-11-06), active release cycle
+- **Source:** pyproject.toml classifier "Development Status :: 5 - Production/Stable", recent commits (latest local commit 2026-03-17), active release cycle
 - **Note:** Latest release v1.11.1 on 2024-12-19
 
 ### 24. Documentation (RECOMMENDED)
-- **URL:** https://ccmc.gsfc.nasa.gov/modelweb/models/nrlmsise00.php
-- **Source:** PyHC registry
-- **Additional Documentation:** README.md in repository provides usage examples and installation instructions
+- **URL:** https://ccmc.gsfc.nasa.gov/models/NRLMSIS~00/
+- **Source:** PyHC registry URL redirects to this current CCMC model page
+- **Additional Documentation:** https://github.com/space-physics/msise00#readme provides package usage examples and installation instructions
 
 ### 25. Funder (OPTIONAL)
 - **Values:** Not found
@@ -195,10 +197,9 @@
 
 ### 29. Related Software (OPTIONAL)
 - **Software:**
-  - geomagindices (>=1.4.0) - dependency for geomagnetic indices
-  - xarray - for data container output
-  - numpy - core numerical dependency
-  - python-dateutil - date/time handling
+  - https://github.com/space-physics/geomagindices - dependency for geomagnetic indices
+  - https://github.com/pydata/xarray - for data container output
+  - https://github.com/numpy/numpy - core numerical dependency
 - **Source:** pyproject.toml dependencies
 - **Note:** These are dependencies rather than related/interoperable software
 
@@ -215,9 +216,9 @@
 - **Note:** Model is mission-independent and provides general atmospheric parameters for any location/time
 
 ### 33. Logo (OPTIONAL)
-- **URL:** https://raw.githubusercontent.com/space-physics/msise00/main/./src/msise00/tests/msise00_demo.gif
-- **Source:** SoMEF (extracted from README)
-- **Note:** Animated demonstration of global atmospheric parameters at 200km altitude
+- **URL:** Not found
+- **Source:** Repository review
+- **Note:** README includes demonstration images and an animation of model output, but no software logo was found.
 
 ---
 
@@ -231,16 +232,16 @@
 - **Stars:** 55
 - **Forks:** 26
 - **Created:** 2015-03-27
-- **Last Updated:** 2025-11-06
+- **Last Updated:** 2026-03-17 (latest local commit after refresh from origin)
 - **Issue Tracker:** https://api.github.com/repos/space-physics/msise00/issues
 
 ### Build System:
-- Uses "build-on-run" technique with Meson build system
+- Uses a "build-on-run" technique for Python/Matlab access
 - Automatically compiles Fortran code on first use
+- Includes CMake support for plain Fortran builds
 - Requires Fortran compiler (gfortran recommended)
 
 ### Dependencies:
-- python-dateutil
 - numpy
 - xarray
 - geomagindices>=1.4.0
@@ -258,8 +259,8 @@
 - Can output NetCDF4 files
 
 ### Cross-Platform Compatibility:
-- Python >= 3.9 required
-- Tested on Python 3.9 and 3.13
+- Python >= 3.11 required
+- Tested on Linux, macOS, and Windows via continuous integration
 - Works on Linux, macOS, Windows
 - Requires Fortran compiler installation
 

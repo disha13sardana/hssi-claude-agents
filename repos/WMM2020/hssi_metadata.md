@@ -29,9 +29,8 @@ https://github.com/space-physics/WMM2020
 
 ### 5. Related Region (MANDATORY)
 - Earth Atmosphere
-- Earth Magnetosphere
 
-**Source notes:** The World Magnetic Model describes Earth's main magnetic field generated in the core, which extends through the atmosphere and magnetosphere. The PyHC keyword "ionosphere_thermosphere_mesosphere" confirms applicability to Earth's upper atmosphere. The model is used for navigation, compass calibration, and geomagnetic research spanning from the surface through the atmosphere. The magnetosphere is included because the model describes Earth's core-generated magnetic field which structures the magnetosphere.
+**Source notes:** The World Magnetic Model describes Earth's main magnetic field generated in the core and supports navigation, compass calibration, and geomagnetic calculations spanning Earth's surface and atmosphere. The PyHC keyword "ionosphere_thermosphere_mesosphere" confirms applicability to Earth's upper atmosphere. Earth Magnetosphere is not listed because the bundled WMM source notes that magnetospheric and ionospheric temporal fluctuations are not included in the model.
 
 ### 6. Authors (MANDATORY)
 - **Author 1:**
@@ -54,9 +53,9 @@ https://github.com/space-physics/WMM2020
 **Source notes:** Michael Hirsch from setup.cfg (24 commits, primary author). Aaron Nielsen (2 commits: transect function, error checking), Andrey Korzh (1 commit: build optimization), Antoine T (1 commit: wmm_point feature) identified from git shortlog as substantive contributors.
 
 ### 7. Software Name (MANDATORY)
-wmm2020
+WMM2020
 
-**Source notes:** From setup.cfg `name` field and PyPI package name. Also listed as "WMM2020" in PyHC registry.
+**Source notes:** Official PyHC registry name and repository/README title. The PyPI package and import name are lowercase `wmm2020`.
 
 ### 8. Description (MANDATORY)
 WMM2020 is a Python wrapper providing a simple, object-oriented interface to the World Magnetic Model 2020 (WMM2020), the standard geomagnetic reference model produced by NOAA's National Centers for Environmental Information (NCEI) and the British Geological Survey (BGS). Given geographic latitude, longitude, altitude, and decimal year as inputs, the software computes the geomagnetic field elements: magnetic declination, inclination, total field intensity, and the north, east, and downward components of the magnetic field vector. The underlying WMM2020 C source code from NOAA is compiled automatically on first use via CMake. The package supports gridded computations over latitude/longitude arrays (returning xarray Datasets) as well as single-point lookups, and includes visualization of declination and inclination contour maps. WMM2020 is tested on Linux, macOS, and Windows. The model is valid for the epoch 2020.0 to 2025.0.
@@ -79,11 +78,11 @@ Python interface to the World Magnetic Model 2020 (WMM2020) for computing geomag
 
 ### 12. Version (RECOMMENDED)
 - **Version Number:** 1.1.1
-- **Version Date:** 2020-11-17
+- **Version Date:** 2021-02-11
 - **Version Description:** Not found -- no CHANGELOG or release notes
 - **Version PID:** Not found -- no version-specific DOI
 
-**Source notes:** Version from setup.cfg. Git tags confirm versions v1.0.0, v1.1.0, and v1.1.1.
+**Source notes:** Version from setup.cfg. Git tags confirm versions v1.0.0, v1.1.0, and v1.1.1. PyPI uploaded `wmm2020-1.1.1.tar.gz` on 2021-02-11, matching the local lightweight tag creatordate.
 
 ### 13. Programming Language (RECOMMENDED)
 - Python 3.x
