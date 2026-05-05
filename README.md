@@ -17,7 +17,7 @@ Claude Code agents for managing [HSSI](https://hssi.hsdcloud.org) software metad
 3. Run `claude` from the root dir
 4. Point it to a software repo (e.g. local folder path, GitHub URL, DOI)
 5. Metadata gets extracted into `repos/<repo>/hssi_metadata.md`
-6. Optionally: ask Claude to submit the metadata to HSSI
+6. Optionally: ask Claude to submit the metadata to HSSI (production or localhost)
 7. To update existing entries: ask Claude to "update sunpy on HSSI"
 
 ## Codex
